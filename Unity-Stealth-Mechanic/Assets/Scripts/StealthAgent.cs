@@ -38,9 +38,6 @@ public class StealthAgent : MonoBehaviour
     private float timer = 0.0f;
     private bool timerStarted;
 
-    // Temporary field mesh
-    private MeshRenderer mesh;
-
     // Stealth manager
     private StealthManager manager;
 
@@ -68,9 +65,6 @@ public class StealthAgent : MonoBehaviour
 
         // Get reference to manager
         manager = FindObjectOfType<StealthManager>();
-
-        mesh = GetComponent<MeshRenderer>();
-        ChangeDetectionState(currentState);
     }
 
     /// <summary>
@@ -85,15 +79,12 @@ public class StealthAgent : MonoBehaviour
         switch (newState)
         {
             case AGENTSTATE.IDLE:
-                mesh.material.color = Color.yellow;
                 break;
 
             case AGENTSTATE.CURIOUS:
-                mesh.material.color = Color.blue;
                 break;
 
             case AGENTSTATE.PURSUING:
-                mesh.material.color = Color.red;
                 break;
         }
 
